@@ -382,7 +382,7 @@
   background-color: #F8F8F8;
   box-shadow: -2px 4px 16px 0 rgba(0, 0, 0, 0.16);
   border-radius: 10px;
-  bottom: 5em;
+  bottom: 7em;
   right:0em;
   color: #0F0F0F;
   z-index: 100;
@@ -396,7 +396,6 @@
   background-color:#F8F8F8;
   rotate: 45deg;
 }
-
 
 .submit-button.disabled {
   background-color:  #C7C7C7;

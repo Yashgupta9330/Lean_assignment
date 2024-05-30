@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; // Import useDispatch hook
 import { setToken, setUser } from '../slices/AuthSlice';
+import Textinput from '../components/Textinput';
+import Button from '../components/Button';
+import { BACKEND_Link } from '../utils/Links';
 
 
 const SignupForm = () => {
@@ -19,8 +22,7 @@ const SignupForm = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (name,value) => {
     setFormData({
       ...formData,
       [name]: value
@@ -38,7 +40,7 @@ const SignupForm = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/signup', {
+      const response = await axios.post(BACKEND_Link+'/signup', {
         Name: name,
         email,
         password,
@@ -71,27 +73,15 @@ const SignupForm = () => {
       <div className="signup-box">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Name:</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} />
-          </div>
-          <div>
-            <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} />
-          </div>
-          <div>
-            <label>Confirm Password:</label>
-            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
-          </div>
+            <Textinput label="name" value={formData.name} name="name" onChange={(value)=>{handleChange("name",value)}} required={true} />
+            <Textinput label="email" name="email" value={formData.email} onChange={(value)=>{handleChange("email",value)}} required={true} />
+            <Textinput label="password" name="password" value={formData.password} onChange={(value)=>{handleChange("password",value)}} required={true} />
+            <Textinput label="confirm-password" name="confirmPassword" value={formData.confirmPassword} onChange={(value)=>{handleChange("confirmPassword",value)}} required={true}/>
           {error && <div className="error-message">{message}</div>}
           {!error && <div className="success-message">{message}</div>}
           <div className='user-info' style={{justifyContent:'space-between'}}>
-          <Link to="/login"><span>Already have a account</span></Link>
-          <button type="submit">Sign Up</button>
+           <Link to="/login"><span>Already have a account</span></Link>
+           <Button disabled={formData.email.trim() === "" || formData.password.trim() === "" || formData.confirmPassword.trim() === "" || formData.name.trim() === ""}>Sign Up</Button>
           </div>
         </form>
       </div>

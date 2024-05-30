@@ -21,3 +21,6 @@ export const components = [
   { action: "Give Suggestion", component: Suggestion },
   { action: "Contact Us", component: Contact }
 ];
+
+
+export const BACKEND_Link="http://localhost:4000"

@@ -7,6 +7,7 @@ import Textarea from "./Textarea";
 import Textinput from "./Textinput";
 import Success from "./Success";
 import { validateEmail, validateMobile } from "../utils/Valid";
+import { BACKEND_Link } from "../utils/Links";
 
 export default function Contact({ setOpen, setSelectedAction }) {
   const [name, setName] = useState("");
@@ -45,7 +46,7 @@ export default function Contact({ setOpen, setSelectedAction }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/contact",
+        BACKEND_Link+"/contact",
         { name, email, phone: mobile, query: issueDescription }
       );
 

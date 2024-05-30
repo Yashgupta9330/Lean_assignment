@@ -8,6 +8,7 @@ import Textinput from "./Textinput";
 import Button from "./Button";
 import Success from "./Success";
 import { validateEmail } from "../utils/Valid";
+import { BACKEND_Link } from "../utils/Links";
 
 export default function Suggestion({ setOpen, setSelectedAction }) {
   const [section, setSection] = useState("Interview Question");
@@ -34,7 +35,7 @@ export default function Suggestion({ setOpen, setSelectedAction }) {
 
     try {
       const response = await axios.post(
-         "http://localhost:4000/suggestion",
+         BACKEND_Link+"/suggestion",
         { section, description: suggestion, email }
       );
       console.log(response)

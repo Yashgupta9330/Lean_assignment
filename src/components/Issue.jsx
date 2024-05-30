@@ -8,10 +8,11 @@ import Heading from "./Heading";
 import Button from "./Button";
 import Success from "./Success";
 import { validateEmail } from "../utils/Valid";
+import { BACKEND_Link } from "../utils/Links";
 
 function Issue({ setOpen, setSelectedAction }) {
   const [issueDescription, setIssueDescription] = useState("");
-  const [section, setSection] = useState("");
+  const [section, setSection] = useState("Interview Questions");
   const [email, setEmail] = useState("");
   const [file, setFile] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState(null);
@@ -37,7 +38,7 @@ function Issue({ setOpen, setSelectedAction }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/issue", // Replace with your actual issue API endpoint
+        BACKEND_Link+"/issue", // Replace with your actual issue API endpoint
         { section, description: issueDescription, email }
       );
 
@@ -48,7 +49,7 @@ function Issue({ setOpen, setSelectedAction }) {
         setTimeout(() => {
           setSubmissionStatus(null);
           setSelectedAction(null);
-        }, 2000);
+        }, 5000);
       } else {
         // Handle other status codes
         console.error("Failed to submit issue:", response.statusText);
@@ -61,11 +62,10 @@ function Issue({ setOpen, setSelectedAction }) {
 
   return (
     <>
-      {submissionStatus === "success" ? (
-        <Success message="Thanks for bringing the issue to our attention. We'll review it shortly and provide an update soon!" />
-      ) : (
-        <>
-          <Heading previous="Let's us know about the" curr="Issue" next="you are Facing!" />
+      {submissionStatus === "success" ? <Success message="Thanks for bringing the issue to our attention. We'll review it shortly and provide an update soon!" />
+       : ( 
+       <>
+       <Heading previous="Let's us know about the" curr="Issue" next="you are Facing!" />
           <Select
             label="Choose the Section"
             value={section}
@@ -98,9 +98,9 @@ function Issue({ setOpen, setSelectedAction }) {
           <div onClick={handleSubmit}>
             <Button disabled={email.trim() === "" || issueDescription.trim() === ""} />
           </div>
-        </>
-      )}
-    </>
+          </>
+          )}
+      </>
   );
 }
 

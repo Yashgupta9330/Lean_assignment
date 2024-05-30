@@ -8,6 +8,7 @@ import Textinput from "./Textinput";
 import Button from "./Button";
 import Success from "./Success";
 import { validateEmail } from "../utils/Valid";
+import { BACKEND_Link } from "../utils/Links";
 
 export default function Feedback({ setOpen, setSelectedAction }) {
   const [feedback, setFeedback] = useState("");
@@ -31,18 +32,19 @@ export default function Feedback({ setOpen, setSelectedAction }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/feedback", // replace with your actual endpoint
-        { email, message: feedback, isAnonymous: isChecked, file: fileValue }
+        BACKEND_Link+"/feedback", 
+        { email, message: feedback, isAnonymous: isChecked}
       );
-
-      if (response.status === 201) {
+     console.log(response)
+      if (response.status === 200) {
         setSubmissionStatus("success");
         setOpen(false);
         setTimeout(() => {
           setSubmissionStatus(null);
           setSelectedAction(null);
         }, 5000);
-      } else {
+      } 
+      else {
         // Handle error
         console.error("Failed to submit feedback");
       }

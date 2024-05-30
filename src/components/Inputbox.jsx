@@ -8,7 +8,7 @@ function InputBox({ action, setOpen, setSelectedAction }) {
   }
 
   return (
-    <div className="inputbox">
+    <div className="inputbox" >
       <Component setOpen={setOpen} setSelectedAction={setSelectedAction} />
     </div>
   );
