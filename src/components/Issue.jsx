@@ -61,7 +61,7 @@ function Issue({ setOpen, setSelectedAction }) {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor:"white"}}>
       {submissionStatus === "success" ? <Success message="Thanks for bringing the issue to our attention. We'll review it shortly and provide an update soon!" />
        : ( 
        <>
