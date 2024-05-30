@@ -160,6 +160,8 @@
     gap: 0.7rem; /* 16px converted to rem */
     overflow: auto;
     position: fixed;
+    top:15px;
+    right:10px;
 }
 
 .heading {
