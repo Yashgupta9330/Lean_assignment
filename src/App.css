@@ -7,78 +7,88 @@
 }
 .navbar {
   width: 100%;
-  height: 122px;
-  color: #F8F8F8;
-  border: 1px solid #FFFFFF; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  margin-inline: auto;
-  border: 1px solid rgba(254, 254, 254, 0.5); 
-  box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25); 
+  height: 100px; /* Change height to auto for responsiveness */
+  color: #f8f8f8;
+  border: 0.0625rem solid rgba(254, 254, 254, 0.5); /* Use rem for border */
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(255, 255, 255, 0.25); /* Use rem for box-shadow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
 }
 
-.inside{
+.inside {
   width: 90%;
-  height: 50%;
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  color: #F8F8F8;
+  height: auto; /* Change height to auto for responsiveness */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f8f8f8;
   font-family: Montserrat, sans-serif;
-  font-weight: 600; 
-  font-size: 24.6px;
-  line-height: 15.14px; 
-  letter-spacing: 2.05px; 
-  text-align: center;
-}
-
-.left{
-  padding: 26.65px 23px;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 8px;
-}
-
-.special{
-  background-color: #FFFFFF;
-  color: #0F0F0F;
-  padding: 6.66px 3.59px;
-}
-
-.right{
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 12px;
-}
-
-.down{
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  font-family: Inter,sans-serif;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 29.05px;
-  color: #FEFEFE;
-  gap: 10px;
+  font-size: 1.25rem; /* Use rem for font size */
+  line-height: 0.94375rem; /* Use rem for line height */
+  letter-spacing: 0.12813rem; /* Use rem for letter spacing */
+  text-align: center;
+  padding: 1.25rem; /* Use rem for padding */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 540px) {
+  .inside {
+    font-size: 1rem; 
+    padding: 1rem;
+  }
+  .gap{
+    gap:0.2rem;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Use rem for gap */
+}
+
+.special {
+  background-color: #ffffff;
+  color: #0f0f0f;
+  padding: 0.41667rem 0.225rem; /* Use rem for padding */
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Use rem for gap */
+}
+
+.down {
+  display: flex;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 1rem; /* Use rem for font size */
+  line-height: 1.81313rem; /* Use rem for line height */
+  color: #f8f8f8;
+  gap: 0.625rem; /* Use rem for gap */
   cursor: pointer;
 }
 
-
-
-
-
-.arrows{
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
+/* Hide .down between 0 and 768 pixels */
+@media (max-width: 48rem) {
+  .down {
+    display: none;
+  }
 }
 
-.arrow{
-  color:rgba(254, 254, 254,1);
+
+.arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  color: rgba(254, 254, 254, 1);
 }
 
 .row-reverse {
@@ -140,16 +150,16 @@
   }
   
   .inputbox {
-    width: 330px;
-    border-radius: 8px;
-    padding: 24px 16px;
+    width: 20.625rem;; /* 330px converted to rem */
+    border-radius: 0.5rem; /* 8px converted to rem */
+    padding: 1.5rem 1rem; /* 24px and 16px converted to rem */
     display: flex;
     flex-direction: column;
     background-color: #F8F8F8;
-    box-shadow: -2px 4px 16px 0 rgba(0, 0, 0, 0.16);
-    gap:16px;
+    box-shadow: -0.125rem 0.25rem 1rem 0 rgba(0, 0, 0, 0.16); /* -2px 4px 16px 0 rgba(0, 0, 0, 0.16) converted to rem */
+    gap: 1rem; /* 16px converted to rem */
     overflow: auto;
-  }
+}
 
   .heading{
     display: flex;
@@ -481,8 +491,32 @@
   align-items: center;
   justify-content: center;
   gap:10px;
+  position: relative;
 }
 
 .redux{
   font-size: 16px;
+  position: absolute;
+  top: 50px;
+  right:8px;
 }
+
+
+.user{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+
+@media (max-width: 540px) {
+    .user-info{
+      gap:5px;
+    };
+    .user{
+      width:30px;
+      height:30px;
+    };
+}
+
+
