@@ -23,4 +23,4 @@ export const components = [
 ];
 
 
-export const BACKEND_Link="http://localhost:4000"
+export const BACKEND_Link="https://lean-backend-sw6d.onrender.com"
