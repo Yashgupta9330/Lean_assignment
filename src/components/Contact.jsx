@@ -75,9 +75,11 @@ export default function Contact({ setOpen, setSelectedAction }) {
         <Success message="Your query has been successfully submitted!" />
       ) : (
         <>
-          <Heading previous="Let us know what " curr="your queries" next="are!" />
+          <div style={{padding:'2px'}}>
+          <Heading previous="Let us know what " curr="your queries" next="are!"/>
+          </div>
           <Textinput label="Your Name" value={name} onChange={setName} />
-          {!email && ( // Render email input only if email doesn't exist in Redux
+          {!email && (
             <div>
               <Textinput
                 label="Your email"
